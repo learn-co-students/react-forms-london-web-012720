@@ -1,0 +1,37 @@
+In the handleFirstNameChange() and handleLastNameChange() methods, we're updating state based on event.target.value. 
+
+This, in turn, causes a re-render... and the cycle completes. 
+
+The new state values we just set are used to set the value attributes of our two inputs. 
+
+From a user's perspective, the form behaves exactly how we'd expect, displaying the text that is typed. 
+
+From React's perspective, we gain control over form values, giving us the ability to more easily manipulate (or restrict) what our inputss display, 
+
+send form data to other parts of the app or out onto the internet...
+
+
+React provides us with two ways of setting and getting values in form elements. These two methods are called uncontrolled and controlled components. 
+
+The differences are subtle, but it's important to recognize them — and use them accordingly 
+most of the time, we'll use controlled components).
+
+The quickest way to check if a component is controlled or uncontrolled is to check for value or defaultValue. 
+
+If the component has a value prop, it is controlled (the state of the component is being controlled by React). 
+
+If it doesn't have a value prop, it's an uncontrolled component. 
+
+Uncontrolled components can optionally have a defaultValue prop to set its initial value. 
+
+These two props (value and defaultValue) are mutually exclusive: a component is either controlled or uncontrolled, but it cannot be both.
+
+In uncontrolled components, the state of the component's value is kept in the DOM itself like a regular old HTML form
+
+To retrieve that value, we would need direct access to the DOM component that holds the value, or we'd have to add an onChange handler.
+
+To set an initial value for the element, we'd use the defaultValue prop.
+
+We can't use the value prop for this: we're not using state to explicitly store its value, so the component would never update its value anymore 
+
+Uncontrolled forms still work just fine in React.
